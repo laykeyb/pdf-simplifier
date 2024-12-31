@@ -9,8 +9,7 @@ export interface callGroqApiProps {
 }
 
 const groq = new Groq({
-  apiKey: "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",
-  dangerouslyAllowBrowser: true,
+  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY!,
 });
 
 const callGroqAPI = async ({

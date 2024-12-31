@@ -14,14 +14,14 @@ import {
 
 export default function page() {
   const user = useCurrentUser();
-  const publicKey = "pk_live_119a521704754edb84778f05e3e7f0229c3b6ffc";
+  
   const componentProps = {
     email: user?.email,
     amount: 5000 * 100,
     metadata: {
       name: user?.name,
     },
-    publicKey,
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
     text: "Subscribe",
     onSuccess: async () => {
       await makeUserPremium(user?.id);
