@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +7,8 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { cn } from "@/lib/utils";
 
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAdsense from "@/components/google-adsense";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,11 +27,11 @@ export default async function RootLayout({
     <SessionProvider session={session}>
       <html lang="en">
         <body className={cn(inter.className, "bg-purple-400")}>
-      
-            <main>{children}</main>
-            <Toaster />
-         <GoogleAnalytics gaId="G-T3WMZHPJ6S"/>
+          <main>{children}</main>
+          <Toaster />
+          <GoogleAnalytics gaId="G-T3WMZHPJ6S" />
         </body>
+          <GoogleAdsense pId="9264449838063473"/>
       </html>
     </SessionProvider>
   );
