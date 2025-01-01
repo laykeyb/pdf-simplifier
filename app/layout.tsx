@@ -8,6 +8,8 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { cn } from "@/lib/utils";
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -28,7 +30,7 @@ export default async function RootLayout({
       
             <main>{children}</main>
             <Toaster />
-         
+         <GoogleAnalytics gaId="G-T3WMZHPJ6S"/>
         </body>
       </html>
     </SessionProvider>
