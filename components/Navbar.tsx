@@ -37,16 +37,13 @@ export default function Navbar() {
         
         </SheetTrigger>
         <SheetContent side="right" className="bg-purple-400">
-          <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
-            
-            <span className="sr-only">Acme Inc</span>
-          </Link>
+          
           <div className="grid gap-2 py-6">
             {NAVBARITEMS.map(({ label, href }) => (
               <Link
                 href={href}
                 key={href}
-                className="flex w-full items-center py-2 text-lg font-semibold"
+                className="flex w-full items-center py-2  font-semibold"
                 prefetch={false}
               >
                 {label}

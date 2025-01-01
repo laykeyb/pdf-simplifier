@@ -50,22 +50,29 @@ import { difficultyLevelAtom, historyAtom } from "@/atoms/simplify-atoms";
 //   return simplifiedWordsArray;
 // };
 const findDifficultWordMatch = (words: string[], difficulyLevel: number) => {
-  const simplifiedWordsArray = words.map((word) => {
+  const simplifiedWordsArray = words.map((word, index) => {
     if (typeof word !== "string") return word;
-    // if (!word.match(/^[A-Za-z]+$/)) return word
+
     const ratedWord = rs.fleschReadingEase(word + ".");
-    // console.log("Rating for "+word+":"+ratedWord);
 
-    if (ratedWord !== undefined) {
-      if (ratedWord < difficulyLevel) {
-        const previousWord = words[words.indexOf(word) - 1] || ",";
-        const followingWord = words[words.indexOf(word) + 1] || ",";
-        const toBeSimplifiedObject = { previousWord, word, followingWord };
-        console.log(toBeSimplifiedObject);
-        console.log(getMemoizedSynonymFromObject(toBeSimplifiedObject));
+    if (ratedWord !== undefined && ratedWord < difficulyLevel) {
+      // Get surrounding words safely
+      const prev3 = words[index - 3] || '';
+      const prev2 = words[index - 2] || '';
+      const prev1 = words[index - 1] || '';
+      
+      const next1 = words[index + 1] || '';
+      const next2 = words[index + 2] || '';
+      const next3 = words[index + 3] || '';
 
-        return toBeSimplifiedObject;
-      }
+      const previousWord = `${prev1} ${prev2} ${prev3}`.trim();
+      const followingWord = `${next1} ${next2} ${next3}`.trim();
+
+      const toBeSimplifiedObject = { previousWord, word, followingWord };
+      console.log(toBeSimplifiedObject);
+      console.log(getMemoizedSynonymFromObject(toBeSimplifiedObject));
+
+      return toBeSimplifiedObject;
     }
     return word;
   });

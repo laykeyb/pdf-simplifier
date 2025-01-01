@@ -3,9 +3,7 @@ import nlp from "compromise";
 import Bottleneck from "bottleneck";
 import rs from "text-readability";
 
-const memoize = require("memoizee")
-;
-
+const memoize = require("memoizee");
 import { callGroqApiProps } from "../actions/simplify";
 
 // Fixing the getPOS function
@@ -97,6 +95,26 @@ const getSynonymFromObject = async ({
       //   // Find the simplest synonym
       //   const simplestSynonym = findSimplestWord(allSynonyms);
       //   const simplestWord = findSimplestWord([word,simplestSynonym])
+      //   return simplestWord;
+      // }
+
+
+      //for getting the bext meaning not sure its necessary
+      // const allMeanings = meaningObject.definitions.reduce((acc, def) => {
+      //   if (def.definition && def.definition.length > 0) {
+      //     acc.push(...def.definition);
+      //   }
+      //   return acc;
+      // }, []);
+
+      // if (meaningObject.definition && meaningObject.definition.length > 0) {
+      //   allMeanings.push(...meaningObject.definition);
+      // }
+
+      // if (allMeanings.length > 0) {
+      //   // Find the simplest synonym
+      //   const simplestMeaning = findSimplestWord(allMeanings);
+      //   const simplestWord = findSimplestWord([word, simplestMeaning]);
       //   return simplestWord;
       // }
 
