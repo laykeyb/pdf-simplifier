@@ -25,7 +25,7 @@ export default function Navbar() {
     <header className="flex container mx-auto  bg-purple-400 h-20 w-full shrink-0 items-center px-4 md:px-6">
       <div className="lg:hidden"><UserButton/></div>
       <Link href="/" className="max-lg:mx-auto " prefetch={false}>
-      <h1 className="text-3xl font-bold ">Meaningfier</h1>
+      <h1 className="lg:text-3xl text-lg font-bold ">Meaningfier</h1>
         <span className="sr-only">Acme Inc</span>
       </Link>
       <Sheet>

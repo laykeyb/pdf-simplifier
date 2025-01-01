@@ -8,6 +8,9 @@ import { callGroqApiProps } from "@/actions/simplify";
 import SimplifiedWithDictionaryWordDisplay from "./simplified-with-dictionary-word-display";
 import { useAtom } from "jotai";
 import { useAiAtom } from "@/atoms/simplify-atoms";
+import React from "react";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
 
 interface MeaningPopupProps {
   wordOrWordObject: string | callGroqApiProps;
@@ -35,27 +38,45 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
 
   if (typeof wordOrWordObject === "string") {
     return (
-      <Tooltip
-        theme="light"
-        open={isOpen}
-        interactive
-        title={wordOrWordObject}
-        html={
-          <div className="flex  cursor-default">
+      <Tippy
+        content={
+          <div className="flex cursor-default">
             <WordMeaningDisplay word={wordOrWordObject} />
             <span onClick={close} className="cursor-pointer">
               <X />
             </span>
           </div>
         }
-        size="big"
-        position="top"
         trigger="click"
+        maxWidth="8rem"
+        
       >
-        <p onClick={open} className="cursor-pointer inline">
+        
+        <p onClick={open} className="inline cursor-pointer">
           {wordOrWordObject}
         </p>
-      </Tooltip>
+      </Tippy>
+      // <Tooltip
+      //   theme="light"
+      //   open={isOpen}
+      //   interactive
+      //   title={wordOrWordObject}
+      //   html={
+      //     <div className="flex  cursor-default">
+      //       <WordMeaningDisplay word={wordOrWordObject} />
+      //       <span onClick={close} className="cursor-pointer">
+      //         <X />
+      //       </span>
+      //     </div>
+      //   }
+      //   size="big"
+      //   position="top"
+      //   trigger="click"
+      // >
+      //   <p onClick={open} className="cursor-pointer inline">
+      //     {wordOrWordObject}
+      //   </p>
+      // </Tooltip>
     );
   }
 
@@ -78,7 +99,7 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
         position="top"
         trigger="click"
       >
-        <p onClick={open} className="inline cursor-pointer bg-yellow-400">
+        <p onClick={open} className="inline cursor-pointer bg-green-400">
           {/* <SimplifiedWordDisplay
             previousWord={wordOrWordObject.previousWord}
             word={wordOrWordObject.word}

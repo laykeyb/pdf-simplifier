@@ -41,10 +41,8 @@ const SequentialTextChunker: React.FC<SequentialTextChunkerProps> = ({
   }
 
   return (
-    <div className="rounded-lg h-full  items-start flex content-start flex-row flex-wrap border p-4 shadow-sm relative">
-      <div className="text-sm text-gray-600 absolute right-0">
-          Chunk {currentChunkIndex + 1} of {chunks.length}
-        </div>
+    <div className=" h-full text-sm  items-start flex content-start flex-row flex-wrap   shadow-sm">
+     
       <ComponentsFromText
         key={currentChunkIndex} // Using currentChunkIndex as key instead of undefined index
         text={chunks[currentChunkIndex]}

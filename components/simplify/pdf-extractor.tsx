@@ -51,7 +51,7 @@ const PdfExtractor = () => {
         accept=".pdf"
         onChange={handleFileUpload}
         disabled={isExtracting}
-        className="bg-[#9237EE] cursor-pointer border-0 mb-8 text-[#D7B1FE] "
+        className="bg-[#9237EE] cursor-pointer border-0 mb-8 text-[#D7B1FE] text-sm "
       />
 
     <PdfTextDisplay/>
