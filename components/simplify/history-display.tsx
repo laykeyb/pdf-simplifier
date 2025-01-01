@@ -10,12 +10,12 @@ import { Button } from "@/components/ui/button"
 import HistoryComponentsFromText from "./history-components-from-text";
 
 const HistoryDisplay = () => {
-  const [history, setHistory] = useAtom(historyAtom);
+  const [history] = useAtom(historyAtom);
   if (!history.length) {
     return <div>Nothing here but crickets</div>;
   }
-  return history.map((hist) => {
-    return <div className="flex flex-row mb-8">
+  return history.map((hist, index) => {
+    return <div className="flex flex-row mb-8" key={index}>
         <div className="truncate">{hist.join("").toString()}</div>
         <Dialog>
           <DialogTrigger > <Button variant="purple">Go to</Button></DialogTrigger>

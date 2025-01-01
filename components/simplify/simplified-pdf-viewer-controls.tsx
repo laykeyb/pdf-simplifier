@@ -7,10 +7,10 @@ import {
 } from "react-icons/fa";
 import { chunksAtom, currentChunkIndexAtom } from "@/atoms/simplify-atoms";
 export function SimplifiedPdfViewerControls() {
-  const [currentChunkIndex, setCurrentChunkIndex] = useAtom(
+  const [, setCurrentChunkIndex] = useAtom(
     currentChunkIndexAtom,
   );
-  const [chunks, setChunks] = useAtom(chunksAtom);
+  const [chunks] = useAtom(chunksAtom);
 
   const handleNext = (): void => {
     setCurrentChunkIndex((prev) => Math.min(prev + 1, chunks.length));

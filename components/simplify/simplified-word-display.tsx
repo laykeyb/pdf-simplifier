@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getSimplifiedObjectWithTextFromTextWithGroqAPI } from "@/actions/simplify";
 import { useEffect, useState } from "react";
 

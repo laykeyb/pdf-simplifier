@@ -14,7 +14,7 @@ const SequentialTextChunker: React.FC<SequentialTextChunkerProps> = ({
   text = "",
   wordsPerChunk = 500,
 }) => {
-  const [currentChunkIndex, setCurrentChunkIndex] = useAtom(currentChunkIndexAtom);
+  const [currentChunkIndex] = useAtom(currentChunkIndexAtom);
   const [chunks, setChunks] = useAtom(chunksAtom);
 
   useEffect(() => {

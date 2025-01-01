@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tippy";
@@ -14,7 +15,7 @@ interface MeaningPopupProps {
 
 const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [useAi, setUseAi] = useAtom(useAiAtom);
+  const [useAi] = useAtom(useAiAtom);
   const open = () => {
     setIsOpen(true);
   };

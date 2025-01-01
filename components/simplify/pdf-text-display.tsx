@@ -4,7 +4,7 @@ import {
   extractedTextAtom,
   isExtractingAtom,
   simplifyAtom,
-  useAiAtom,
+
 } from "@/atoms/simplify-atoms";
 import { useAtom } from "jotai";
 

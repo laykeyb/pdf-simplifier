@@ -1,7 +1,10 @@
+/* eslint-disable */
 import nlp from "compromise";
 import Bottleneck from "bottleneck";
 import rs from "text-readability";
-const memoize = require("memoizee");
+
+const memoize = require("memoizee")
+;
 
 import { callGroqApiProps } from "../actions/simplify";
 

@@ -1,6 +1,5 @@
 import { Mail } from 'lucide-react'
 import React from 'react'
-import { BsMailbox } from 'react-icons/bs'
 
 const ContactPage = () => {
   return (

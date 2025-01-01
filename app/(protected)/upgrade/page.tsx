@@ -6,10 +6,10 @@ import { PaystackButton } from "react-paystack";
 import {
   Card,
   CardContent,
-  CardDescription,
+
   CardFooter,
   CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card";
 
 export default function page() {
@@ -29,6 +29,7 @@ export default function page() {
     },
     onClose: () => alert("Are you sure you want to close?"),
   };
+  
   return (
     <div className="container mx-auto">
       <h1 className="lg:text-4xl text-xl mx-auto text-center mb-8">Choose your plan</h1>

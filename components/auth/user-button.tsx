@@ -27,7 +27,7 @@ export const UserButton = () => {
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40" align="end">
+      <DropdownMenuContent className="w-40 bg-[#D7B1FE]" align="end">
         <LogoutButton>
           <DropdownMenuItem>
             <IoExitOutline className="h-4 w-4 mr-2"/>

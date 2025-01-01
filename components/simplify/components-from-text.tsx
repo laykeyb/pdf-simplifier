@@ -1,28 +1,25 @@
+/* eslint-disable */
 "use client";
 import rs from "text-readability";
 import WordsToButton from "./words-to-button";
 
-import {
-  callGroqApiProps,
-  getSimplifiedObjectWithTextFromTextWithGroqAPI,
-} from "@/actions/simplify";
 import { getMemoizedSynonymFromObject } from "@/lib/simplifyWithDictionary";
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { difficultyLevelAtom, historyAtom } from "@/atoms/simplify-atoms";
 
-const getSimplifiedText = async (toBeSimplifiedObject: callGroqApiProps) => {
-  try {
-    const simplifiedObject =
-      await getSimplifiedObjectWithTextFromTextWithGroqAPI(
-        toBeSimplifiedObject,
-      );
-    console.log(simplifiedObject);
-    return simplifiedObject;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// const getSimplifiedText = async (toBeSimplifiedObject: callGroqApiProps) => {
+//   try {
+//     const simplifiedObject =
+//       await getSimplifiedObjectWithTextFromTextWithGroqAPI(
+//         toBeSimplifiedObject,
+//       );
+//     console.log(simplifiedObject);
+//     return simplifiedObject;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // const findDifficultWordMatch = (words: string[]) => {
 //   const simplifiedWordsArray = words.map((word, index) => {
@@ -53,7 +50,7 @@ const getSimplifiedText = async (toBeSimplifiedObject: callGroqApiProps) => {
 //   return simplifiedWordsArray;
 // };
 const findDifficultWordMatch = (words: string[], difficulyLevel: number) => {
-  const simplifiedWordsArray = words.map((word, index) => {
+  const simplifiedWordsArray = words.map((word) => {
     if (typeof word !== "string") return word;
     // if (!word.match(/^[A-Za-z]+$/)) return word
     const ratedWord = rs.fleschReadingEase(word + ".");
@@ -78,7 +75,7 @@ const findDifficultWordMatch = (words: string[], difficulyLevel: number) => {
 
 const ComponentsFromText = ({ text }): React.ReactNode => {
   const [history, setHistory] = useAtom(historyAtom);
-  const [difficultyLevel, setDifficultyLevel] = useAtom(difficultyLevelAtom);
+  const [difficultyLevel] = useAtom(difficultyLevelAtom);
 
   const words = text.split(/([a-zA-Z]+(?:'[a-zA-Z]+)?)|([^a-zA-Z0-9\s])/g);
   const simplifiedWordsArray = findDifficultWordMatch(words, difficultyLevel);

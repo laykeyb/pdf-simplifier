@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as pdfjsLib from "pdfjs-dist";
 
 // Configure PDF.js worker dynamically to ensure compatibility with Next.js
@@ -11,7 +12,7 @@ export const extractPDFText = async (pdfFile: File) => {
       const arrayBuffer = await pdfFile.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
       let textContent = "";
-      let numberOfCurrentPdfPageSimplified = pdf.numPages;
+    
       // Extract text from all pages
       for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);

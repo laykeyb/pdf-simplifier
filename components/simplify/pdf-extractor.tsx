@@ -6,9 +6,9 @@ import { toast } from "@/hooks/use-toast";
 import PdfTextDisplay from "@/components/simplify/pdf-text-display";
 
 const PdfExtractor = () => {
-  const [extractedText, setExtractedText] = useAtom(extractedTextAtom);
+  const [, setExtractedText] = useAtom(extractedTextAtom);
   const [isExtracting, setIsExtracting] = useAtom(isExtractingAtom);
-  const [simplify, setSimplify] = useAtom(simplifyAtom)
+  const [, setSimplify] = useAtom(simplifyAtom)
 
 
   const handleFileUpload = async (
@@ -51,7 +51,7 @@ const PdfExtractor = () => {
         accept=".pdf"
         onChange={handleFileUpload}
         disabled={isExtracting}
-        className="bg-[#9237EE]   border-0 mb-8 text-[#D7B1FE] "
+        className="bg-[#9237EE] cursor-pointer border-0 mb-8 text-[#D7B1FE] "
       />
 
     <PdfTextDisplay/>
