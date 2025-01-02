@@ -10,13 +10,6 @@ import { settings } from "@/actions/settings";
 import { useSession } from "next-auth/react";
 
 import { Switch } from "@/components/ui/switch";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { SettingsSchema } from "@/schemas";
 
 import {
@@ -33,7 +26,7 @@ import { Input } from "@/components/ui/input";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
-import { UserRole } from "@prisma/client";
+
 
 const SettingsPage = () => {
   const user = useCurrentUser();
