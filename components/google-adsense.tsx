@@ -1,5 +1,4 @@
-import { admin } from "@/actions/admin";
-import { useCurrentUser } from "@/hooks/use-current-user";
+
 import Script from "next/script";
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
 };
 
 const GoogleAdsense: React.FC<Props> = ({ pId }) => {
-  const user = useCurrentUser();
+ 
   if (process.env.NODE_ENV !== "production") {
     return null;
   }

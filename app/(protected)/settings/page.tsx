@@ -73,7 +73,7 @@ const SettingsPage = () => {
     <div className="container mx-auto px-8">
       <Card className="mx-auto w-full lg:w-[600px]">
         <CardHeader>
-          <p className="text-center text-2xl font-semibold">Settings</p>
+          <p className="text-center lg:text-2xl text-lg font-semibold">Settings</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
