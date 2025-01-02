@@ -50,8 +50,7 @@ const SettingsPage = () => {
       newPassword: undefined,
       name: user?.name || undefined,
       email: user?.email || undefined,
-      role: user?.role || undefined,
-      isTwoFactorEnabled:user?.isTwoFactorEnabled || undefined
+      isTwoFactorEnabled: user?.isTwoFactorEnabled || undefined,
     },
   });
 
@@ -72,9 +71,9 @@ const SettingsPage = () => {
   };
   return (
     <div className="container mx-auto px-8">
-      <Card className="lg:w-[600px] w-full mx-auto">
+      <Card className="mx-auto w-full lg:w-[600px]">
         <CardHeader>
-          <p className="text-2xl font-semibold text-center">Settings</p>
+          <p className="text-center text-2xl font-semibold">Settings</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -156,53 +155,29 @@ const SettingsPage = () => {
                     />
                   </>
                 )}
-                <FormField
-                  control={form.control}
-                  name="role"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Role</FormLabel>
-                      <Select
-                        disabled={isPending}
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a role" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value={UserRole.ADMIN}>Admin</SelectItem>
-                          <SelectItem value={UserRole.USER}>User</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+
                 {user?.isOAuth === false && (
-                <FormField
-                  control={form.control}
-                  name="isTwoFactorEnabled"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
-                      <div className="space-y-0.5">
-                        <FormLabel>Two Factor Authentication</FormLabel>
-                        <FormDescription>
-                          Enable two factor authentication for your account
-                        </FormDescription>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          disabled={isPending}
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="isTwoFactorEnabled"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                        <div className="space-y-0.5">
+                          <FormLabel>Two Factor Authentication</FormLabel>
+                          <FormDescription>
+                            Enable two factor authentication for your account
+                          </FormDescription>
+                        </div>
+                        <FormControl>
+                          <Switch
+                            disabled={isPending}
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
                 )}
               </div>
               <FormError message={error} />
