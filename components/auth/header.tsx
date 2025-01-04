@@ -16,7 +16,7 @@ export const Header = ({label}:HeaderProps)=> {
         <h1 className={cn("lg:text-3xl text-lg font-semibold",font.className)}>
             Meaningfier
         </h1>
-        <p className="text-red-600 text-sm text-center">Register or login with Google or Github. We are running maintenance updates.</p>
+        <p className="text-red-600 text-xs text-center">Please register or login with Google or Github. We are running maintenance updates.</p>
         <p className="text-muted-foreground text-sm">{label}</p>
     </div>
 }
