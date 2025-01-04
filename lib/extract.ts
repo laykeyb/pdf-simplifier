@@ -18,7 +18,6 @@ export const extractPDFText = async (pdfFile: File) => {
         const page = await pdf.getPage(i);
 
         const textLayer = await page.getTextContent();
-        console.log(textLayer);
 
         const pageText = textLayer.items
           .map((item: any) =>

@@ -94,7 +94,7 @@ const ComponentsFromText = ({ text }): React.ReactNode => {
       const newHistory = [...prevHistory, simplifiedWordsArray];
       return newHistory.slice(-maxHistorySize); // Only keep the most recent items
     });
-    console.log("History :" + history);
+    // console.log("History :" + history);
   }, []);
   return simplifiedWordsArray.map((wordOrWordObject, index) => (
     <WordsToButton wordOrWordObject={wordOrWordObject} key={index} />

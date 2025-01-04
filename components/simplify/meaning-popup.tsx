@@ -41,7 +41,7 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
       <Tippy
         content={
           <div className="flex cursor-default">
-            <WordMeaningDisplay word={wordOrWordObject} />
+            {isOpen && <WordMeaningDisplay word={wordOrWordObject} />}
             <span onClick={close} className="cursor-pointer">
               <X />
             </span>

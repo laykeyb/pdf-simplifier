@@ -21,37 +21,11 @@ const callGroqAPI = async ({
     messages: [
       {
         role: "user",
-        content: `simplify "${word}" in context "${previousWord} ${word} ${followingWord}"`
+        content: `give the simpler synonym of "${word}" that will replace it in this text "${previousWord} ${word} ${followingWord}" .The answer should be a word or at most a short phrase.If one word will capture the meaning well use a phrase. Ignore the word undefined if you see it.If the word is already simple return the word no need to simplify.DON'T simplify proper nouns, return it as it is`,
       },
       {
         role: "system",
-        content: `You are a word simplification engine. When I give you a word and its context, your ONLY response should be a simpler version of that word. 
-
-Input format: simplify "complexWord" in context "before complexWord after"
-
-Rules:
-1. ALWAYS return a simpler alternative - never return the original word unless it's a proper noun or already the simplest possible form (like "cat" or "run")
-
-2. The simpler version must:
-   - Be immediately understandable to a 10-year-old
-   - Keep the exact same meaning
-   - Work grammatically in the original context
-   - Match the original's tense and number
-   - Keep the same part of speech
-   - Be 1-3 words maximum
-
-3. Output format:
-   - Just the simple word/phrase alone
-   - No explanations
-   - No quotes
-   - Match original capitalization
-
-Example inputs/outputs:
-"commenced" in context "they commenced working" → began
-"utilize" in context "we utilize tools" → use
-"expeditious" in context "an expeditious response" → quick
-"methodology" in context "the methodology works" → method
-"optimal" in context "the optimal solution" → best`,
+        content: "return ONLY the answer and nothing else",
       },
     ],
     model: "llama3-8b-8192",

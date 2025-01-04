@@ -98,7 +98,6 @@ const getSynonymFromObject = async ({
       //   return simplestWord;
       // }
 
-
       //for getting the bext meaning not sure its necessary
       // const allMeanings = meaningObject.definitions.reduce((acc, def) => {
       //   if (def.definition && def.definition.length > 0) {
@@ -118,7 +117,7 @@ const getSynonymFromObject = async ({
       //   return simplestWord;
       // }
 
-      return meaningObject.definitions[0]?.definition || word;
+      return meaningObject.definitions[0]?.definition;
     }
 
     return word;
