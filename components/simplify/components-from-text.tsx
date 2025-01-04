@@ -53,9 +53,9 @@ const findDifficultWordMatch = (words: string[], difficulyLevel: number) => {
   const simplifiedWordsArray = words.map((word, index) => {
     if (typeof word !== "string") return word;
 
-    const ratedWord = rs.automatedReadabilityIndex(word + ".");
+    const ratedWord = rs.fleschReadingEase(word + ".");
 
-    if (ratedWord !== undefined && ratedWord > difficulyLevel) {
+    if (ratedWord !== undefined && ratedWord < difficulyLevel) {
       // Get surrounding words safely
       const prev3 = words[index - 3] || '';
       const prev2 = words[index - 2] || '';
