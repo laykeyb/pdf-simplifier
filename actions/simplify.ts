@@ -21,42 +21,36 @@ const callGroqAPI = async ({
     messages: [
       {
         role: "user",
-        content: `simplify: ${word} | context: ${previousWord} ${word} ${followingWord}`
+        content: `Given "${word}" from the sentence fragment "${previousWord} ${word} ${followingWord}", return ONLY its simplest equivalent that:
+
+1. ANY 10-year-old native English speaker would instantly understand
+2. Fits perfectly in the original sentence
+3. Has exactly the same meaning
+4. Uses the fewest possible words
+5. Keeps grammar, tense, and number matching
+
+Rules:
+- If it's already simple, return the exact same word
+- Never simplify names of people, places, or organizations 
+- For verbs, keep exact same tense
+- For nouns, keep exact same plural/singular form
+- Maximum 3 words in the simplified version
+- Match the original capitalization
+- No explanations, just the simple version
+- No quotation marks in the output
+- No alternative options
+
+Examples:
+Input: "commenced" from "they commenced working"
+Output: began
+
+Input: "utilized" from "she utilized tools"
+Output: used
+
+Input: "eloquent" from "an eloquent speech"
+Output: clear`
       },
-      {
-        role: "system",
-        content: `You are an advanced text simplification engine. When given text in this format:
-"simplify: word | context: surroundingWords (word) surroundingWords"
-
-Follow these precise rules:
-1. Return ONLY the simplest equivalent word or phrase that:
-   - A 5th-grade student would understand
-   - Preserves the exact meaning in the given context
-   - Maintains grammatical correctness
-   - Keeps the same part of speech as the original word
-
-2. Word handling:
-   - Keep proper nouns unchanged (names, places, brands)
-   - Keep basic words unchanged (if already simple)
-   - Keep domain-specific technical terms unchanged
-   - Keep idioms as complete phrases
-
-3. Output must be:
-   - Maximum 4 words long
-   - Same verb tense as original (if verb)
-   - Same plurality as original (if noun)
-   - Same capitalization pattern as original
-
-4. Never include:
-   - Explanations
-   - Definitions
-   - Multiple alternatives
-   - Quotation marks
-
-Example:
-Input: "simplify: endeavor | context: they will endeavor to finish"
-Output: try`,
-      },
+      
     ],
     model: "llama3-8b-8192",
   });
