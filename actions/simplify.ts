@@ -21,7 +21,7 @@ const callGroqAPI = async ({
     messages: [
       {
         role: "user",
-        content: `simplify: ${word} | context: ${before} ${word} ${after}`
+        content: `simplify: ${word} | context: ${previousWord} ${word} ${followingWord}`
       },
       {
         role: "system",
