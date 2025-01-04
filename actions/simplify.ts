@@ -21,36 +21,38 @@ const callGroqAPI = async ({
     messages: [
       {
         role: "user",
-        content: `Given "${word}" from the sentence fragment "${previousWord} ${word} ${followingWord}", return ONLY its simplest equivalent that:
+        content: `simplify "${word}" in context "${previousWord} ${word} ${followingWord}"`
+      },
+      {
+        role: "system",
+        content: `You are a word simplification engine. When I give you a word and its context, your ONLY response should be a simpler version of that word. 
 
-1. ANY 10-year-old native English speaker would instantly understand
-2. Fits perfectly in the original sentence
-3. Has exactly the same meaning
-4. Uses the fewest possible words
-5. Keeps grammar, tense, and number matching
+Input format: simplify "complexWord" in context "before complexWord after"
 
 Rules:
-- If it's already simple, return the exact same word
-- Never simplify names of people, places, or organizations 
-- For verbs, keep exact same tense
-- For nouns, keep exact same plural/singular form
-- Maximum 3 words in the simplified version
-- Match the original capitalization
-- No explanations, just the simple version
-- No quotation marks in the output
-- No alternative options
+1. ALWAYS return a simpler alternative - never return the original word unless it's a proper noun or already the simplest possible form (like "cat" or "run")
 
-Examples:
-Input: "commenced" from "they commenced working"
-Output: began
+2. The simpler version must:
+   - Be immediately understandable to a 10-year-old
+   - Keep the exact same meaning
+   - Work grammatically in the original context
+   - Match the original's tense and number
+   - Keep the same part of speech
+   - Be 1-3 words maximum
 
-Input: "utilized" from "she utilized tools"
-Output: used
+3. Output format:
+   - Just the simple word/phrase alone
+   - No explanations
+   - No quotes
+   - Match original capitalization
 
-Input: "eloquent" from "an eloquent speech"
-Output: clear`
+Example inputs/outputs:
+"commenced" in context "they commenced working" → began
+"utilize" in context "we utilize tools" → use
+"expeditious" in context "an expeditious response" → quick
+"methodology" in context "the methodology works" → method
+"optimal" in context "the optimal solution" → best`,
       },
-      
     ],
     model: "llama3-8b-8192",
   });
