@@ -29,8 +29,8 @@ export default async function RootLayout({
         <body className={cn(inter.className, "bg-purple-400")}>
           <main>{children}</main>
           <Toaster />
-          <GoogleAnalytics gaId="G-T3WMZHPJ6S" />
         </body>
+          <GoogleAnalytics gaId="G-T3WMZHPJ6S" />
           <GoogleAdsense pId="9264449838063473"/>
       </html>
     </SessionProvider>
