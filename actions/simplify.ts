@@ -26,7 +26,7 @@ const callGroqAPI = async ({
       {
         role: "system",
         content: `You are an advanced text simplification engine. When given text in this format:
-"simplify: word | context: previousWord word followingWord"
+"simplify: word | context: surroundingWords (word) surroundingWords"
 
 Follow these precise rules:
 1. Return ONLY the simplest equivalent word or phrase that:
