@@ -13,5 +13,5 @@ export const simplifyAtom = atom(false)
 export const currentChunkIndexAtom = atom(0)
 export const chunksAtom = atom([])
 export const useAiAtom = atom(false)
-export const difficultyLevelAtom = atom(-40)
+export const difficultyLevelAtom = atom(-60)
 

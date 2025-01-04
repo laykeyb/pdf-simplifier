@@ -21,7 +21,27 @@ const callGroqAPI = async ({
     messages: [
       {
         role: "user",
-        content: `give the simpler synonym of "${word}" that will replace it in this text "${previousWord} ${word} ${followingWord}" .The answer should be a word or at most a short phrase.If one word will capture the meaning well use a phrase. Ignore the word undefined if you see it.If the word is already simple return the word no need to simplify.DON'T simplify proper nouns, return it as it is`,
+        content: `Given a word "${word}" in the context "${previousWord} ${word} ${followingWord}", provide its simpler equivalent according to these rules:
+
+1. Return a single word if it can fully capture the meaning
+2. Use a brief phrase (2-4 words) only if necessary for clarity
+3. Return the original word if:
+   - It is already simple
+   - It is a proper noun (name, place, brand, etc.)
+   - It is a technical term that shouldn't be simplified
+4. Context handling:
+   - Ignore "undefined" if it appears in the context
+   - Consider the surrounding words to ensure the replacement maintains grammatical correctness
+5. Format:
+   - Return only the simplified word/phrase without explanation
+   - Preserve the original capitalization pattern
+   - Keep any necessary punctuation attached to the word
+
+Example inputs and outputs:
+"abundant" → "plenty"
+"circumvent" → "go around"
+"Microsoft" → "Microsoft"
+"simple" → "simple"`,
       },
       {
         role: "system",

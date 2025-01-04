@@ -24,11 +24,11 @@ useEffect(()=> {
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="-20">Easiest</SelectItem>
-        <SelectItem value="-40">Level 1</SelectItem>
-        <SelectItem value="-60">Level 2</SelectItem>
-        <SelectItem value="-80">Level 3</SelectItem>
-        <SelectItem value="-100">Hardest</SelectItem>
+        <SelectItem value="-50">Easiest</SelectItem>
+        <SelectItem value="-60">Level 1</SelectItem>
+        <SelectItem value="-80">Level 2</SelectItem>
+        <SelectItem value="-100">Level 3</SelectItem>
+        <SelectItem value="-120">Hardest</SelectItem>
       </SelectContent>
     </Select>
   );
