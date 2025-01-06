@@ -23,10 +23,8 @@ const getPOS = ({ previousWord, word, followingWord }: callGroqApiProps) => {
 };
 
 const limiter = new Bottleneck({
-  reservoir: 30,
-  reservoirRefreshAmount: 30,
-  reservoirRefreshInterval: 60 * 1000,
-  maxConcurrent: 1,
+  minTime: 1000 / 60, // 1 request per second
+  maxConcurrent: 1, // Limit to 1 concurrent request to stay within rate limit
 });
 
 const findSimplestWord = (words) => {

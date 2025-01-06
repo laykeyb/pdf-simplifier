@@ -46,7 +46,7 @@ const PdfTextDisplay = () => {
       <h3 className="mb-2 text-sm font-semibold">{simplify?"Simplified Text": "Extracted Text"}</h3>
       <div className=" h-96 w-full  overflow-y-auto    dark:bg-black">
         {extractedText && simplify ? (
-          <SequentialTextChunker text={extractedText} wordsPerChunk={200} />
+          <SequentialTextChunker text={extractedText} wordsPerChunk={625} />
         ) : (
           <div className="bg-yellow-200 text-sm">{extractedText}</div>
         )}

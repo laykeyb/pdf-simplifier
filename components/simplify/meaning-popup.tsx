@@ -82,45 +82,45 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
 
   if (typeof wordOrWordObject === "object") {
     return (
-      <Tooltip
-        theme="light"
-        open={isOpen}
-        interactive
-        title={wordOrWordObject.word}
-        // html={
-        //   <div className="flex cursor-default">
-        //     <WordMeaningDisplay word={word} />
-        //     <span onClick={close} className="cursor-pointer">
-        //       <X />
-        //     </span>
-        //   </div>
-        // }
-        size="big"
-        position="top"
-        trigger="click"
-      >
-        <span onClick={open} className="inline cursor-pointer bg-orange-300">
-          {/* <SimplifiedWordDisplay
-            previousWord={wordOrWordObject.previousWord}
-            word={wordOrWordObject.word}
-            followingWord={wordOrWordObject.followingWord}
-          /> */}
-          {useAi ? (
-            <SimplifiedWordDisplay
-              previousWord={wordOrWordObject.previousWord}
-              word={wordOrWordObject.word}
-              followingWord={wordOrWordObject.followingWord}
-            />
-          ) : (
+      // <Tooltip
+      //   theme="light"
+      //   open={isOpen}
+      //   interactive
+      //   title={wordOrWordObject.word}
+      //   // html={
+      //   //   <div className="flex cursor-default">
+      //   //     <WordMeaningDisplay word={word} />
+      //   //     <span onClick={close} className="cursor-pointer">
+      //   //       <X />
+      //   //     </span>
+      //   //   </div>
+      //   // }
+      //   size="big"
+      //   position="top"
+      //   trigger="click"
+      // >
+      //   <span onClick={open} className="inline cursor-pointer bg-orange-300">
+      //     {/* <SimplifiedWordDisplay
+      //       previousWord={wordOrWordObject.previousWord}
+      //       word={wordOrWordObject.word}
+      //       followingWord={wordOrWordObject.followingWord}
+      //     /> */}
+      //     {useAi ? (
+      //       <SimplifiedWordDisplay
+      //         previousWord={wordOrWordObject.previousWord}
+      //         word={wordOrWordObject.word}
+      //         followingWord={wordOrWordObject.followingWord}
+      //       />
+      //     ) : (
             <SimplifiedWithDictionaryWordDisplay
               previousWord={wordOrWordObject.previousWord}
               word={wordOrWordObject.word}
               followingWord={wordOrWordObject.followingWord}
             />
           )}
-        </span>
-      </Tooltip>
-    );
-  }
+      //   </span>
+      // </Tooltip>
+//     );
+//   }
 };
 export default MeaningPopup;
