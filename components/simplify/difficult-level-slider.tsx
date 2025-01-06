@@ -20,7 +20,8 @@ useEffect(()=> {
           setDifficultyLevel(parseInt(val));
         }
       }} >
-      <SelectTrigger className="w-[180px]">
+        {/* TODO: Add useword list level */}
+      {/* <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>
@@ -29,7 +30,8 @@ useEffect(()=> {
         <SelectItem value="-80">Level 2</SelectItem>
         <SelectItem value="-100">Level 3</SelectItem>
         <SelectItem value="-120">Hardest</SelectItem>
-      </SelectContent>
+        
+      </SelectContent> */}
     </Select>
   );
 };
