@@ -24,13 +24,13 @@ export function SimplifiedPdfViewerControls() {
       <div className="flex gap-4">
         <button
           onClick={handlePrev}
-          className="flex size-14 items-center justify-center rounded-full bg-[AA5DF8] text-white shadow"
+          className="flex size-14 items-center justify-center rounded-full bg-[AA5DF8] hover:bg-accent/20 text-white shadow"
         >
           <FaArrowLeft className="size-5 lg:size-10" />
         </button>
         <button
           onClick={handleNext}
-          className="flex size-14 items-center justify-center rounded-full bg-[AA5DF8] text-white shadow"
+          className="flex size-14 items-center justify-center rounded-full bg-[AA5DF8] hover:bg-accent/20 text-white shadow"
         >
           <FaArrowRight className="size-5 lg:size-10" />
         </button>

@@ -43,8 +43,8 @@ const PdfTextDisplay = () => {
 
   return (
     <div>
-      <h3 className="mb-2 text-sm font-semibold">Extracted Text</h3>
-      <div className=" h-96 w-full  overflow-y-auto    dark:bg-black">
+      <h3 className="mb-2 text-sm font-semibold">{simplify?"Simplified Text": "Extracted Text"}</h3>
+      <div className=" h-80 w-full  overflow-y-auto    dark:bg-black">
         {extractedText && simplify ? (
           <SequentialTextChunker text={extractedText} wordsPerChunk={200} />
         ) : (
@@ -56,14 +56,14 @@ const PdfTextDisplay = () => {
         <SimplifiedPdfViewerControls />
       ) : (
         <div className=" mt-4">
-          <Button onClick={handleSimplify} variant="purple"  disabled={simplify} >
+          <Button onClick={handleSimplify} className="mb-4" variant="purple"  disabled={simplify} >
             Simplify
           </Button>
           <Collapsible >
-            <CollapsibleTrigger className="flex gap-2 bg-[#D7B1FE] px-4 py-2">
+            <CollapsibleTrigger className="flex gap-2 bg-[#D7B1FE] mb-2 rounded-md px-4 py-2">
               <span>Options</span> <ChevronDown />
             </CollapsibleTrigger>
-            <CollapsibleContent className="bg-[#D7B1FE] w-fit p-4">
+            <CollapsibleContent className="bg-[#D7B1FE] w-fit rounded-md p-4">
               <div className="mb-4">
                 <UseAiSwitch simplify={simplify} />
               </div>

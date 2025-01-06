@@ -41,8 +41,7 @@ const SequentialTextChunker: React.FC<SequentialTextChunkerProps> = ({
   }
 
   return (
-    <div className=" h-full text-sm  items-start flex content-start flex-row flex-wrap   shadow-sm">
-     
+    <div className="inline h-full  text-sm shadow-sm">
       <ComponentsFromText
         key={currentChunkIndex} // Using currentChunkIndex as key instead of undefined index
         text={chunks[currentChunkIndex]}

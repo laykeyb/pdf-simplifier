@@ -52,9 +52,9 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
         
       >
         
-        <p onClick={open} className="inline cursor-pointer">
+        <span onClick={open} className="inline cursor-pointer active:bg-green-300">
           {wordOrWordObject}
-        </p>
+        </span>
       </Tippy>
       // <Tooltip
       //   theme="light"
@@ -99,7 +99,7 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
         position="top"
         trigger="click"
       >
-        <p onClick={open} className="inline cursor-pointer bg-green-400">
+        <span onClick={open} className="inline cursor-pointer bg-orange-300">
           {/* <SimplifiedWordDisplay
             previousWord={wordOrWordObject.previousWord}
             word={wordOrWordObject.word}
@@ -118,7 +118,7 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
               followingWord={wordOrWordObject.followingWord}
             />
           )}
-        </p>
+        </span>
       </Tooltip>
     );
   }

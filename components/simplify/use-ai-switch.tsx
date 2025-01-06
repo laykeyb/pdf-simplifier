@@ -33,7 +33,7 @@ export function UseAiSwitch({ simplify }: { simplify: boolean }) {
         id="useAi"
         className="mx-2"
       />
-      {!isPremium &&  <Button asChild><Link href="/upgrade">Subscribe</Link></Button>}
+      {!isPremium &&  <Button asChild variant="purple"><Link href="/upgrade">Subscribe</Link></Button>}
     </div>
   );
 }
