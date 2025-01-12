@@ -72,7 +72,7 @@ export default function Home() {
           ></path>
         </svg>
         <section className="mt-8">
-          <div className="flex items-center justify-center">
+          <div className="flex  md:flex-row flex-col items-center justify-center">
             <div className="md:w-1/2 w-full" >
               <h2 className="mt-20 max-w-xl text-xl font-semibold text-black drop-shadow-md lg:text-4xl">
                 Focus on reading and understanding
@@ -102,6 +102,7 @@ export default function Home() {
           </p>
         </section>
       </main>
+      
     </div>
   );
 }
