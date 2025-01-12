@@ -72,16 +72,16 @@ export default function Home() {
           ></path>
         </svg>
         <section className="mt-8">
-          <div className="flex">
-            <div className="w-1/2">
+          <div className="flex items-center justify-center">
+            <div className="md:w-1/2 w-full" >
               <h2 className="mt-20 max-w-xl text-xl font-semibold text-black drop-shadow-md lg:text-4xl">
                 Focus on reading and understanding
               </h2>
               <p className="text-[#D3FE3E]">
-                Never waste time getting mening of words from dictionaries{" "}
+                Never waste time getting meaning of words from dictionaries{" "}
               </p>
             </div>
-            <div className="w-1/2 max-h-40">
+            <div className="md:w-1/2 w-full max-h-40">
               <img src="/undraw_in-the-zone_07y7.png" alt="" />
             </div>
           </div>
