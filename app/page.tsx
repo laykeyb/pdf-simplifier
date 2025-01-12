@@ -74,7 +74,7 @@ export default function Home() {
         <section className="mt-8">
           <div className="flex  md:flex-row flex-col items-center justify-center">
             <div className="md:w-1/2 w-full" >
-              <h2 className="mt-20 max-w-xl text-xl font-semibold text-black drop-shadow-md lg:text-4xl">
+              <h2 className=" max-w-xl text-xl font-semibold text-black drop-shadow-md lg:text-4xl">
                 Focus on reading and understanding
               </h2>
               <p className="text-[#D3FE3E]">
