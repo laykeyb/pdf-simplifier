@@ -105,19 +105,20 @@ const MeaningPopup = ({ wordOrWordObject }: MeaningPopupProps) => {
       //       word={wordOrWordObject.word}
       //       followingWord={wordOrWordObject.followingWord}
       //     /> */}
-      //     {useAi ? (
-      //       <SimplifiedWordDisplay
-      //         previousWord={wordOrWordObject.previousWord}
-      //         word={wordOrWordObject.word}
-      //         followingWord={wordOrWordObject.followingWord}
-      //       />
-      //     ) : (
+          useAi ? (
+            <SimplifiedWordDisplay
+              previousWord={wordOrWordObject.previousWord}
+              word={wordOrWordObject.word}
+              followingWord={wordOrWordObject.followingWord}
+            />
+          ) : (
             <SimplifiedWithDictionaryWordDisplay
               previousWord={wordOrWordObject.previousWord}
               word={wordOrWordObject.word}
               followingWord={wordOrWordObject.followingWord}
             />
-          )}
+          ))
+        }
       //   </span>
       // </Tooltip>
 //     );

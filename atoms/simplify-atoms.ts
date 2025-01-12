@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
 
 
@@ -12,6 +13,6 @@ export const historyAtom = atom<(string | {
 export const simplifyAtom = atom(false)
 export const currentChunkIndexAtom = atom(0)
 export const chunksAtom = atom([])
-export const useAiAtom = atom(false)
+export const useAiAtom = atomWithStorage('useAi',false)
 export const difficultyLevelAtom = atom(-60)
 

@@ -1,6 +1,5 @@
 "use server";
-import { prompt, systemPrompt } from "@/lib/promptsOld";
-import Bottleneck from "bottleneck";
+
 import Groq from "groq-sdk";
 export interface callGroqApiProps {
   previousWord: string;
@@ -17,19 +16,21 @@ const callGroqAPI = async ({
   word,
   followingWord,
 }: callGroqApiProps) => {
-  return groq.chat.completions.create({
+  const response = await groq.chat.completions.create({
     messages: [
       {
         role: "user",
-        content: `give the simpler synonym of "${word}" that will replace it in this text "${previousWord} ${word} ${followingWord}" .The answer should be a word or at most a short phrase.If one word will capture the meaning well use a phrase. Ignore the word undefined if you see it.If the word is already simple return the word no need to simplify.DON'T simplify proper nouns, return it as it is`,
+        content: `Simplify the word "${word}" in the following context: "${previousWord} ${word} ${followingWord}". If a simpler word is possible, use it; otherwise, keep the word as is. If the word is a proper noun, leave it unchanged. Only return the simplified word or phrase.`,
       },
       {
         role: "system",
-        content: "return ONLY the answer and nothing else",
+        content: "Return ONLY the simplified word or phrase, nothing else.",
       },
     ],
     model: "llama3-8b-8192",
   });
+
+  return response;
 };
 // Create a limiter with specific rate limit rules
 // const limiter = new Bottleneck({
@@ -43,9 +44,6 @@ export const getSimplifiedObjectWithTextFromTextWithGroqAPI = async ({
   followingWord,
 }: callGroqApiProps) => {
   // const limitedGroqAPI = limiter.wrap(callGroqAPI);
-  const simplified = await callGroqAPI({previousWord, word, followingWord});
-  return simplified.choices[0]?.message?.content || "" ;
+  const simplified = await callGroqAPI({ previousWord, word, followingWord });
+  return simplified.choices[0]?.message?.content || "";
 };
-
-
-

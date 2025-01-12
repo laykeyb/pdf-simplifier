@@ -24,8 +24,16 @@ const SimplifiedWordDisplay = (
     fetchSimplifiedWord();
   }, []);
   if (!simplifiedWord) {
-    return <span>loading...</span>
+    return <span className="bg-orange-200">loading...</span>;
   }
-  return <span>{simplifiedWord}</span>;
+  if (word === simplifiedWord) {
+    return <span>{word}</span>
+  }
+  return (
+    <span>
+      <span className="bg-orange-200">{word}</span>{" "}
+      <span className="bg-purple-200">[{simplifiedWord}]</span>
+    </span>
+  );
 };
 export default SimplifiedWordDisplay;

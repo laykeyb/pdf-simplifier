@@ -5,7 +5,7 @@ const HistoryComponentsFromText = ({
   simplifiedWordsArray,
 }): React.ReactNode => {
   return (
-    <div className="flex max-h-96 flex-row flex-wrap items-center justify-center overflow-y-scroll">
+    <div className="inline max-h-96  overflow-y-scroll">
       {simplifiedWordsArray.map((wordOrWordObject, index) => (
         <WordsToButton wordOrWordObject={wordOrWordObject} key={index} />
       ))}
